@@ -6,7 +6,7 @@ import org.webwoods.graphqlstarter.dto.UserDto;
 import java.util.List;
 
 public interface UserService {
-    String createUser(UserDto userDto);
+    UserEntity createUser(UserDto userDto);
     UserEntity findById(Integer id);
 
     List<UserEntity> findAll();

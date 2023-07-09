@@ -1,6 +1,6 @@
 type Query {
-    userAll: [User]!
-    userById(id: ID!): User
+    userAll: [UserEntity]
+    userById(id: ID): UserEntity
 
 #    postAll: [Post]!
 #    postByPostId(id: ID!): Post
@@ -8,22 +8,32 @@ type Query {
 }
 
 type Mutation {
-    createUser(id: Int!,fullName: String!, email: String!, dob: String!, gender: String!, presentAddress: String, permanentAddress: String): User
+    createUser(userDto:UserDto): UserEntity
 #    createPost(userId: Int!, title: String!, description: String!, publishedDate: String!): Post!
 #    deletePostById(postId:ID):Boolean
+    #email: String,fullName: String,presentAddress: String,permanentAddress: String,gender: String,dob: String
 }
 
 
-type User {
-    id: Int!
-    email: String!
-    fullName: String!
+type UserEntity {
+    id: Int
+    email: String
+    fullName: String
     presentAddress: String
     permanentAddress: String
-    gender: String!
-    dob: String!
+    gender: String
+    dob: String
 }
 
+input UserDto {
+    id: Int
+    email: String
+    fullName: String
+    presentAddress: String
+    permanentAddress: String
+    gender: String
+    dob: String
+}
 #type Post {
 #    id: Int!
 #    userByUserId: User!

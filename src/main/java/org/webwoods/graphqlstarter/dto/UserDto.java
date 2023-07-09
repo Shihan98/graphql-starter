@@ -3,8 +3,9 @@ package org.webwoods.graphqlstarter.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-
+@ToString
 public class UserDto {
     private int id;
     private String fullName;
@@ -19,6 +20,15 @@ public class UserDto {
 
     public UserDto(int id, String fullName, String email, String gender, String dob, String presentAddress, String permanentAddress) {
         this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.gender = gender;
+        this.dob = dob;
+        this.presentAddress = presentAddress;
+        this.permanentAddress = permanentAddress;
+    }
+
+    public UserDto(String email, String fullName, String presentAddress, String permanentAddress, String gender, String dob) {
         this.fullName = fullName;
         this.email = email;
         this.gender = gender;

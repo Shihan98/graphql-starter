@@ -17,9 +17,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String createUser(UserDto userDto) {
+    public UserEntity createUser(UserDto userDto) {
+        System.out.println("create user");
         UserEntity userEntity = new UserEntity(
-                userDto.getId(),
                 userDto.getFullName(),
                 userDto.getEmail(),
                 userDto.getDob(),
@@ -29,18 +29,20 @@ public class UserServiceImpl implements UserService {
         );
 
 
-        userRepository.save(userEntity);
-        return "save";
+       return userRepository.save(userEntity);
+
     }
 
     @Override
     public UserEntity findById(Integer id) {
+        System.out.println("find by id");
         Optional<UserEntity> userEntityOptional = userRepository.findById(id);
         return userEntityOptional.orElse(null);
     }
 
     @Override
     public List<UserEntity> findAll() {
+        System.out.println("findall");
         return userRepository.findAll();
     }
 }

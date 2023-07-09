@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user", schema = "blog")
+@Table(name = "user")
 public class UserEntity {
 
     @Id
@@ -39,6 +39,15 @@ public class UserEntity {
 
     public UserEntity(int id, String fullName, String email, String gender, String dob, String presentAddress, String permanentAddress) {
         this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.gender = gender;
+        this.dob = dob;
+        this.presentAddress = presentAddress;
+        this.permanentAddress = permanentAddress;
+    }
+
+    public UserEntity(String fullName, String email, String dob, String gender, String presentAddress, String permanentAddress) {
         this.fullName = fullName;
         this.email = email;
         this.gender = gender;

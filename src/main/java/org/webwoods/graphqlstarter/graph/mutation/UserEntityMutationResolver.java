@@ -9,17 +9,22 @@ import org.webwoods.graphqlstarter.dto.UserDto;
 import org.webwoods.graphqlstarter.graph.service.UserService;
 
 @Service
-public class UserMutationResolver implements GraphQLMutationResolver {
+public class UserEntityMutationResolver implements GraphQLMutationResolver {
     private UserService userService;
 
     @Autowired
-    public UserMutationResolver(UserService userService) {
+    public UserEntityMutationResolver(UserService userService) {
         this.userService = userService;
     }
 
-    public String createUser(UserDto userDto) {
-        userService.createUser(userDto);
-        return "saved";
+    public UserEntity createUser(UserDto userDto) {
+        System.out.println("crjjj");
+        try {
+            return userService.createUser(userDto);
+        }catch (Exception e){
+            throw e;
+        }
+
     }
 
 //    @Autowired
